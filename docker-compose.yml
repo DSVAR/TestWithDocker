@@ -1,6 +1,10 @@
 ﻿services:
   testwithdocker:
     image: testwithdocker
+    restart: always
+    ports:
+      - "5082:5082"
+      - "7200:7200"
     build:
       context: .
       dockerfile: Dockerfile
