@@ -5,6 +5,6 @@
       context: .
       dockerfile: Dockerfile
     ports:
-      - "5082:80"  # Пробрасываем порт 80 контейнера на порт 8080 хоста
+      - "5082:8080"  # Пробрасываем порт 80 контейнера на порт 8080 хоста
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
