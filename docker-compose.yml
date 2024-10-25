@@ -1,10 +1,10 @@
 ﻿services:
-  testwithdocker:
-    image: testwithdocker
-    restart: always
-    ports:
-      - "5082:5082"
-      - "7200:7200"
+  TestWithDocker:
+    image: testwithdocker1
     build:
       context: .
       dockerfile: Dockerfile
+    ports:
+      - "5082:80"  # Пробрасываем порт 80 контейнера на порт 8080 хоста
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
