@@ -17,6 +17,10 @@ FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
 RUN dotnet publish "TestWithDocker.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
+# Проверяем содержимое каталога out
+RUN echo "Содержимое каталога out:" && ls -l /app/publish
+
+
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
